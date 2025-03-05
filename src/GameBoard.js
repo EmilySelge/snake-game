@@ -6,8 +6,8 @@ class GameBoard {
 
     constructor () {
 
-        this.gameBoardDiv.style.gridTemplateColumns = `repeat(${this.width}, 12px)`;
-        this.gameBoardDiv.style.gridTemplateRows = `repeat(${this.height}, 12px)`;
+        this.gameBoardDiv.style.gridTemplateColumns = `repeat(${this.width}, 24px)`;
+        this.gameBoardDiv.style.gridTemplateRows = `repeat(${this.height}, 24px)`;
     
     }
 
@@ -22,7 +22,7 @@ class GameBoard {
                 const cellDiv = document.createElement('div');
         
                 if ( snake.coordinates.includes(`${y}_${x}`) ) {
-                    cellDiv.innerText = '🪳';
+                    cellDiv.innerText = '🕷️';
                 }
     
                 if ( y == food.y && x == food.x ) {

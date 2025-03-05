@@ -6,7 +6,7 @@ class Food {
     
     generate ( gameBoard, snakeCoordinates ) {
         
-        const emojis = ['🍎', '🍉', '🍇', '🍔', '🧁', '🥪'];
+        const emojis = ['🍎', '🍓', '🍭', '🍔', '🍾', '🥫', '🫐', '🍟', '🍕', '🍿'];
 
         do {
             this.x = Math.floor(Math.random() * gameBoard.width);
