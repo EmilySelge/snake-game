@@ -1,33 +1,42 @@
-
 class GameBoard {
-    constructor(width, height) {
-        this.gameBoardDiv = document.getElementById('game-board');
-        this.width = width;
-        this.height = height;
+    
+    gameBoardDiv = document.getElementById('game-board');
+    width = 20;
+    height = 20;
+
+    constructor () {
 
         this.gameBoardDiv.style.gridTemplateColumns = `repeat(${this.width}, 12px)`;
         this.gameBoardDiv.style.gridTemplateRows = `repeat(${this.height}, 12px)`;
+    
     }
 
-    draw(snake, food) {
+    draw ( snake, food ) {
+
         this.gameBoardDiv.innerHTML = '';
-    
-        for (let y = 0; y < this.height; y++) {
-            for (let x = 0; x < this.width; x++) {
+        
+        for ( let y = 0; y < this.height; y++ ) {
+        
+            for ( let x = 0; x < this.width; x++ ) {
+        
                 const cellDiv = document.createElement('div');
-    
-                if (snake.includes(`${y}_${x}`)) {
-                    cellDiv.innerText = '😼';
+        
+                if ( snake.coordinates.includes(`${y}_${x}`) ) {
+                    cellDiv.innerText = '🪳';
                 }
     
-                if (y === food.y && x === food.x) {
+                if ( y == food.y && x == food.x ) {
                     cellDiv.innerText = food.emoji;
                 }
                 
                 this.gameBoardDiv.appendChild(cellDiv);
+        
             }
+        
         }
+        
     }
+
 }
 
-export { GameBoard };
+export { GameBoard }

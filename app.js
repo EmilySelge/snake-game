@@ -1,33 +1,12 @@
-
-import { Food } from "./src/Food.js";
+import { Game } from "./src/Game.js";
 import { GameBoard } from "./src/GameBoard.js";
 import { Snake } from "./src/Snake.js";
-import { Game } from "./src/Game.js";
+import { Food } from "./src/Food.js";
+import { Options } from "./src/Options.js";
 
-
-
-const height = 25;
-const width = 70;
-const acceleration = 1;
-const foodEmojis = ['🥩', '🍗', '🍖', '🐀', '🐁'];
-
-
-let speedUp = Number(localStorage.getItem('snakeSpeedUp') ?? 0);
-speedUpInput.checked = !!speedUp;
-
-const gameBoard = new GameBoard(width, height);
+const options = new Options();
+const gameBoard = new GameBoard();
 const snake = new Snake(gameBoard);
-const food = new Food(foodEmojis);
+const food = new Food();
 
-const game = new Game(gameBoard, snake, food, throughWalls, acceleration);
-
-throughWallsInput.addEventListener('change', () => {
-    throughWalls = !throughWalls ? 1 : 0;
-    localStorage.setItem('snakeThroughWalls', throughWalls);
-    game.throughWalls = throughWalls;
-});
-
-speedUpInput.addEventListener('change', () => {
-    speedUp = !speedUp ? 1 : 0;
-    localStorage.setItem('snakeSpeedUp', speedUp);
-});
+new Game(gameBoard, snake, food, options);
